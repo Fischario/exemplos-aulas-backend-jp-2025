@@ -1,7 +1,13 @@
 // const express = require('express') // ERRADO
 import express from 'express' // CERTO | Botar "type": "module", no package.json do projeto
-const app = express()
+import { getExercicio1, getExercicio2, getExercicio3, getExercicio4, getExercicio5 } from './services/exercicios-get.js'
+import { postExercicio1, postExercicio2, postExercicio3, postExercicio4, postExercicio5 } from './services/exercicios-post.js'
+
 const porta = 9999
+
+const app = express()
+
+app.use(express.json())
 
 // - Query params -
 // inicializa depois do ? na URL
@@ -9,89 +15,27 @@ const porta = 9999
 // ?idade=99
 // ?nome=batata&idade=99&etc=etal...
 
-app.get('/exercicio1', (req, res) => {
-    res.status(200)
-    const { num1, num2 } = req.query
-    res.send({
-        result: parseFloat(num1) + parseFloat(num2)
-    })
-})
+app.get('/get/exercicio1', getExercicio1)
 
-app.get('/exercicio2', (req, res) => {
-    res.status(200)
-    const { valorHora, qtdHoras } = req.query
-    res.send({ 
-        result: parseFloat(valorHora) * parseFloat(qtdHoras)
-    })
-})
+app.get('/get/exercicio2', getExercicio2)
 
-app.get('/exercicio3', (req, res) => {
-    res.status(200)
-    const { peso1, peso2, peso3, peso4, peso5 } = req.query
-    res.send({
-        result: (parseFloat(peso1) + parseFloat(peso2) + parseFloat(peso3) + parseFloat(peso4) + parseFloat(peso5)) / 5
-    })
-})
+app.get('/get/exercicio3', getExercicio3)
 
-app.get('/exercicio4', (req, res) => {
-    res.status(200)
-    const celsius = parseFloat(req.query.celsius)
-    res.send({
-        result: (9 * celsius + 160) / 5
-    })
-})
+app.get('/get/exercicio4', getExercicio4)
 
-app.get('/exercicio5', (req, res) => {
-    res.status(200)
-    const milhas = parseFloat(req.query.milhas)
-    res.send({
-        result: milhas * 1.60934
-    })
-})
+app.get('/get/exercicio5', getExercicio5)
 
 // POST ------------------------------------------------------------------------------
 
-app.use(express.json())
+app.post('/post/exercicio1', postExercicio1)
 
-app.post('/post/exercicio1', (req, res) => {
-    res.status(200)
-    const { num1, num2 } = req.body
-    res.send({
-        result: parseFloat(num1) + parseFloat(num2)
-    })
-})
+app.post('/post/exercicio2', postExercicio2)
 
-app.post('/post/exercicio2', (req, res) => {
-    res.status(200)
-    const { valorHora, qtdHoras } = req.body
-    res.send({ 
-        result: parseFloat(valorHora) * parseFloat(qtdHoras)
-    })
-})
+app.post('/post/exercicio3', postExercicio3)
 
-app.post('/post/exercicio3', (req, res) => {
-    res.status(200)
-    const { peso1, peso2, peso3, peso4, peso5 } = req.body
-    res.send({
-        result: (parseFloat(peso1) + parseFloat(peso2) + parseFloat(peso3) + parseFloat(peso4) + parseFloat(peso5)) / 5
-    })
-})
+app.post('/post/exercicio4', postExercicio4)
 
-app.post('/post/exercicio4', (req, res) => {
-    res.status(200)
-    const celsius = parseFloat(req.body.celsius)
-    res.send({
-        result: (9 * celsius + 160) / 5
-    })
-})
-
-app.post('/post/exercicio5', (req, res) => {
-    res.status(200)
-    const milhas = parseFloat(req.body.milhas)
-    res.send({
-        result: milhas * 1.60934
-    })
-})
+app.post('/post/exercicio5', postExercicio5)
 
 app.listen(porta, () => {
     console.log(`servidor rodando na porta ${porta}`)
