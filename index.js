@@ -1,7 +1,7 @@
 // const express = require('express') // ERRADO
 import express from 'express' // CERTO | Botar "type": "module", no package.json do projeto
-import { getExercicio1, getExercicio2, getExercicio3, getExercicio4, getExercicio5 } from './services/exercicios-get.js'
-import { postExercicio1, postExercicio2, postExercicio3, postExercicio4, postExercicio5 } from './services/exercicios-post.js'
+import { getExercicio1, getExercicio2, getExercicio3, getExercicio4, getExercicio5 } from './controllers/exercicios-get.js'
+import { postExercicio1, postExercicio2, postExercicio3, postExercicio4, postExercicio5 } from './controllers/exercicios-post.js'
 
 const porta = 9999
 
