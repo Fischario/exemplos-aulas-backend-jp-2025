@@ -1,4 +1,4 @@
-import { somar, salario, fahrenheit, kilometros, media } from "../services/exercicios"
+import { somar, salario, fahrenheit, kilometros, media } from "../services/exercicios.js"
 
 export const postExercicio1 = (req, res) => {
     const { num1, num2 } = req.body

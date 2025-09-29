@@ -1,4 +1,4 @@
-import { salario, somar } from "../services/exercicios"
+import { salario, somar } from "../services/exercicios.js"
 
 export const getExercicio1 = (req, res) => {
     const { num1, num2 } = req.query
