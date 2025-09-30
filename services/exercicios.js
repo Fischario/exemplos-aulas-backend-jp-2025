@@ -1,5 +1,7 @@
 export function somar(num1, num2) {
-    return num1 + num2
+    // função ajeitada para corrigir o float defeituoso do JavaScript
+    const result = (num1 * 100) + (num2 * 100)
+    return result / 100
 }
 
 export function salario(valorHora, qtdHoras) {
