@@ -1,16 +1,16 @@
-import { salario, somar } from "../services/exercicios.js"
+import servicesExercicios from "../services/exercicios.js"
 
 export const getExercicio1 = (req, res) => {
     const { num1, num2 } = req.query
     res.send({
-        result: somar(parseFloat(num1), parseFloat(num2))
+        result: servicesExercicios.Somar(parseFloat(num1), parseFloat(num2))
     }).status(200)
 }
 
 export const getExercicio2 = (req, res) => {
     const { valorHora, qtdHoras } = req.query
     res.send({ 
-        result: salario(parseFloat(valorHora), parseFloat(qtdHoras))
+        result: servicesExercicios.Salario(parseFloat(valorHora), parseFloat(qtdHoras))
     }).status(200)
 }
 
